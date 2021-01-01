@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="app">
-    <p>{{ message }}</p>
-    <input type="text" v-model="message">
-  </div>
+    <div id="app">
+        <p>残タスク数:{{remaining}}/{{list.length}}</p>
+        <input type="text" v-model="addText" placeholder="ToDoを入力して">
+        <button v-on:click="addToDo()">追加</button>
+        <button v-on:click="deleteBtn()">削除</button><hr>
+        <ul v-if="list.length">
+            <li v-for="todo in list">
+                <span v-bind:class="{ done: todo.isChecked }">
+                    <input type="checkbox" v-model="todo.isChecked">{{ todo.text }}
+                </span>
+            </li>
+        </ul>
+        <ul v-else>
+            <li>ToDoはありません</li>
+        </ul>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
