@@ -3,6 +3,7 @@ var app = new Vue({
   data: {
       list: [],
       addText: '',
+      keyword: '',
   },
   //watchでlistの変更を監視
   watch: {
@@ -45,6 +46,13 @@ var app = new Vue({
             }
         }
         return count;
+    }
+  },
+  computed:{
+    ****: function(){
+        if(list.indexOf("keyword") >-1){
+            
+        }
     }
   }
 });
