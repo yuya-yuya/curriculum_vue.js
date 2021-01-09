@@ -49,9 +49,9 @@ var app = new Vue({
     }
   },
   computed:{
-    ****: function(){
-        if(list.indexOf("keyword") >-1){
-            
+    search: function(){
+        if(list.indexOf(this.keyword) >-1){
+            return
         }
     }
   }
