@@ -35,7 +35,7 @@ var app = new Vue({
           });
       }
   },
-  computed:{
+    computed:{
     remaining: function(){
         var count = 0;
         var list = this.list;
@@ -46,13 +46,16 @@ var app = new Vue({
             }
         }
         return count;
-    }
   },
-  computed:{
-    search: function(){
-        if(list.indexOf(this.keyword) >-1){
-            return
+  filteredList: function() {
+    let filtered = [];
+    for(let i in this.list) {
+       let todo = this.list[i];
+        if(todo.text.indexOf(this.keyword) != -1) {
+            filtered.push(todo);
         }
+    }   
+    return filtered;
+    } 
     }
-  }
 });
